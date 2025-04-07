@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>People List</h2>
+    <button routerLink="/add" class="edit">Add Person</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Mobile</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.age }}</td>
+          <td>{{ person.gender }}</td>
+          <td>{{ person.mobile }}</td>
+          <td class="actions">
+            <button class="edit" [routerLink]="['/edit', person._id]">Edit</button>
+            <button class="delete" (click)="deletePerson(person._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
